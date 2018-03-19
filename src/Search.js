@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class Search extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             search: '',
         };
@@ -18,14 +18,13 @@ class Search extends Component {
     }
     handleSubmit(e) {
         e.preventDefault();
-        this.props;
     }
 
     render() {
         return (
             <div>
-                <form action="">
-                    <input type="text" value={this.state.search} onChange={this.handleChange} />
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" value={this.state.search} onChange={this.handleChange} placeholder="Search Movie Title..." />
                     <button>Search</button>
                 </form>
             </div>
