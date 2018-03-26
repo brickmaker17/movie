@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import MainItem from './MainItem';
+import styled from 'styled-components';
+
+const ListofMovies = styled.ul`
+    display: flex;
+    width: 100vw;
+    overflow-x: scroll;
+`
 
 class Main extends Component {
     render() {
@@ -9,7 +16,7 @@ class Main extends Component {
         } = this.props.movies;
         const titles = this.props.movies.movies.Search || [];
         const listMovies = titles.map((title, i) => <MainItem state={this.props.movies} {...title} key={i} />);
-        // console.log(this.props.movies);
+        // console.log(this.props.movies.movies);
         // const resultItems = this.props.movies.movies.Search.map((result) => <MainItem />);
         return (
             loading ?
@@ -23,9 +30,9 @@ class Main extends Component {
                         <p>{errMsg}</p>
                     </div>
                     :
-                    <ul>
+                    <ListofMovies>
                         {listMovies}
-                    </ul>
+                    </ListofMovies>
         );
     }
 }

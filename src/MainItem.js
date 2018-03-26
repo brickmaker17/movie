@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import MovieDetails from './MovieDetails';
+import styled from 'styled-components';
+
+const ListMovies = styled.li`
+    list-style: none;
+`
 
 
 class MainItem extends Component {
@@ -9,28 +14,32 @@ class MainItem extends Component {
             showModal: props.state.showModal
         }
         this.handleClick = this.handleClick.bind(this);
-        // console.log(this.state)
+        // console.log(this.props)
     }
     handleClick(e) {
         e.preventDefault();
         // console.log(this.props.state)
         this.setState(prevState => ({
-                showModal: !prevState.showModal
-            }));
-            console.log(this.state)
+            showModal: !prevState.showModal
+        }));
+        // console.log(this.props)
     }
 
     render() {
         let { Title, Poster, Year, imdbID } = this.props;
-        // console.log(this.props.state);
+        const modal = this.state.showModal ? (
+            <MovieDetails click={this.handleClick} imdb={ imdbID }></MovieDetails>
+        ) : null;
+        
+        // console.log(this.handleClick);
         return (
             <div>
-                <li>
+                <ListMovies>
                     <h1>{Title}</h1>
                     <h3>Year: {Year}</h3>
                     <a href="#" onClick={this.handleClick}><img src={Poster} alt={Title} /></a>
-                </li>
-                <MovieDetails imdb={imdbID} ></MovieDetails>
+                </ListMovies>
+                    {modal}
             </div>
         );
     }

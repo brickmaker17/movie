@@ -48,7 +48,7 @@ class App extends Component {
                 loading: false,
 
             });
-            console.log(this.state.search);
+            // console.log(search);
         })
             .catch((err) => {
                 console.error(err);
@@ -63,7 +63,7 @@ class App extends Component {
     
 
     render() {
-        // console.log(this.state);
+        // console.log(search);
         return (
             <div className="App">
                 <h2>Search for Movies or Seasons</h2>
