@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import YoutubeList from './YoutubeList';
 
 const Modal = styled.div`
     background-color: rgba(255,255,255,1.0);
@@ -86,30 +87,34 @@ const movieType = '&type=movie&';
 const movieSearch = '?i=';
 
 
+
+
 class MovieDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            details: []
+            details: [],
         }
-        // console.log(this.props)
-       
+        // console.log(this.state)
     }
 
     componentDidMount(props) {
         axios.get(moviesite + movieSearch + this.props.imdb + movieType + apiKey).then((res) => {
             const results = res.data;
+            // const resultss = resul.data;
             this.setState({
-                details: results
+                details: results,
             });
-            // console.log(results)
+            // console.log(resultss)
             // console.log(results);
         })
     }
 
+    
+
     render(){
         const { Title, Actors, Awards, Director, Plot, Metascore, Production, Rated, Released, Writer, Runtime, imdbRating, Poster  } = this.state.details;
-        console.log(this.state.details)
+        // console.log(this.state.details)
         return(
             ReactDOM.createPortal(
                 <Modal>
@@ -127,6 +132,7 @@ class MovieDetails extends Component {
                     <Rating>Rated: { Rated }</Rating>
                     <Rate>IMDB Rating: { imdbRating }</Rate>
                     <Plots>{ Plot }</Plots>
+                    <YoutubeList />
                 </Modal>,
                 // this.props.children,
                 document.getElementById('modal-root')
