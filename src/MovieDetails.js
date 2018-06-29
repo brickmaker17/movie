@@ -113,7 +113,19 @@ class MovieDetails extends Component {
     
 
     render(){
-        const { Title, Actors, Awards, Director, Plot, Metascore, Production, Rated, Released, Writer, Runtime, imdbRating, Poster  } = this.state.details;
+        const { Title, 
+                Actors, 
+                Awards, 
+                Director, 
+                Plot, 
+                Metascore, 
+                Production, 
+                Rated, 
+                Released, 
+                Writer, 
+                Runtime, 
+                imdbRating, 
+                Poster  } = this.state.details;
         // console.log(this.state.details)
         return(
             ReactDOM.createPortal(

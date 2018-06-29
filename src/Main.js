@@ -8,8 +8,8 @@ const ListofMovies = styled.ul`
     overflow-x: scroll;
 `
 
-class Main extends Component {
-    render() {
+export default class Main extends Component {
+render() {
         // console.log(this.props.movies)
         const {
             loading, err, errMsg,
@@ -36,5 +36,3 @@ class Main extends Component {
         );
     }
 }
-
-export default Main;

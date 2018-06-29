@@ -7,7 +7,7 @@ const ListMovies = styled.li`
 `
 
 
-class MainItem extends Component {
+export default class MainItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -44,4 +44,3 @@ class MainItem extends Component {
         );
     }
 }
-export default MainItem;
